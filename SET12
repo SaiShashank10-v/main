@@ -1,0 +1,78 @@
+SET 12 ----------------------------------
+1. import java.util.*;
+class HashTableDemo
+{
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        sc.nextLine();
+        Hashtable<String,String> h=new Hashtable<String,String>();
+        String a,b,k;
+        for(int i=0;i<n;i++)
+        {
+            a=sc.nextLine();
+            b=sc.nextLine();
+            h.put(a,b);
+        }
+        System.out.println("Hashtable contents:");
+        Iterator<String> z=h.keySet().iterator();
+        for(int i=0;i<h.size();i++)
+        {
+            k=z.next();
+            System.out.print("Key: "+k+" Value: "+h.get(k));
+            System.out.println();
+        }
+    }
+}
+--------------------------------------------------------------------
+2. import java.io.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.table.*;
+
+public class table extends JFrame {
+    private JTable table;
+
+    public table() {
+        setTitle("Display Data in Table");
+        setSize(600, 400);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // Create a table model
+        DefaultTableModel model = new DefaultTableModel();
+        table = new JTable(model);
+
+        // Add columns to the table model
+        model.addColumn("Column 1");
+        model.addColumn("Column 2");
+        model.addColumn("Column 3");
+        model.addColumn("Column 4");
+
+        // Read data from file and populate table model
+        try (Scanner sc = new Scanner(new File("Table.txt"))) {
+            while (sc.hasNextLine()) {
+                String line = sc.nextLine();
+                String[] data = line.split(",");
+                model.addRow(data);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error reading file: " + e.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+        // Add table to JScrollPane
+        JScrollPane scrollPane = new JScrollPane(table);
+        getContentPane().add(scrollPane);
+
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        
+            
+                new table();
+            
+    }
+}
