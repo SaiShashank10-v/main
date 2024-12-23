@@ -1,0 +1,47 @@
+SET 11
+WordCount
+--------------------
+import java.io.*;
+class WordCount
+{
+    public static void main(String[] args) throws Exception
+    {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        String s = bf.readLine();
+        
+        FileInputStream fin = new FileInputStream(s);
+        int c = 0,w = 1 , l =1;
+        int n=fin.read();
+        while(n!=-1)
+        {
+            c++;
+            if((char)n == ' ' || (char)n=='\n')
+            w++;
+            if((char)n=='\n')
+            l++;
+            n = fin.read();
+        }
+        System.out.println("The number of characters is " +c);
+        System.out.println("The number of words is " +w);
+        System.out.println("The number of lines is " +l);
+    }
+}
+---------------------------------------------------------
+VECTOR
+
+2. import java.util.*;
+class VectorDemo
+{
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        sc.nextLine();
+        Vector<String> v=new Vector<String>();
+        for(int i=0;i<n;i++)
+        v.addElement(sc.nextLine());
+        System.out.println("Elements are:");
+        for(String i:v)
+        System.out.print(i+" ");
+    }
+}
