@@ -39,17 +39,14 @@ public class table extends JFrame {
         setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Create a table model
         DefaultTableModel model = new DefaultTableModel();
         table = new JTable(model);
 
-        // Add columns to the table model
         model.addColumn("Column 1");
         model.addColumn("Column 2");
         model.addColumn("Column 3");
         model.addColumn("Column 4");
 
-        // Read data from file and populate table model
         try (Scanner sc = new Scanner(new File("Table.txt"))) {
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
@@ -62,7 +59,6 @@ public class table extends JFrame {
                     "Error", JOptionPane.ERROR_MESSAGE);
         }
 
-        // Add table to JScrollPane
         JScrollPane scrollPane = new JScrollPane(table);
         getContentPane().add(scrollPane);
 
