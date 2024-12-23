@@ -1,0 +1,54 @@
+UNIVERSAL PALINDROME
+
+import java.util.*;
+class palindrome
+{
+    palindrome(String p)
+    {
+        for(int i=0;i<p.length()/2;i++)
+        if(p.charAt(i)!=p.charAt(p.length()-i-1))
+        {
+            System.out.println("string "+p+" is not palindrome");
+            System.exit(0);
+        }
+        System.out.println("string "+p+" is palindrome");
+    }
+    
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        String p = sc.nextLine();
+        palindrome pd = new palindrome(p);
+    }
+}
+
+---------------------------------------------------------------------
+
+CHECKED EXCEPTION
+
+import java.io.*;
+class checkedException
+{
+    public static void main(String[] args) throws Exception
+    {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        String s = bf.readLine();
+        
+        try
+        {
+            FileInputStream fin = new FileInputStream(s);
+            int n = fin.read();
+            while(n!=-1)
+            {
+                System.out.print((char)n);
+                n = fin.read();
+            }
+            fin.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println("Error reading file");
+        }
+        
+    }
+}
