@@ -1,0 +1,101 @@
+Method Overloading --
+
+import java.util.Scanner;
+class Demo
+{
+    void display(char c)
+    {
+        System.out.println("Value of character = "+c);
+    }
+    void display(char c , int num)
+    {
+        System.out.println("Value of character = "+c);
+        System.out.println("Value of Integer number = "+num);
+    }
+    void display(int num, double d)
+    {
+        System.out.println("Value of Integer number = "+num);
+        System.out.println("Value of Floating Number = "+d);
+    }
+}
+public class MethodOverloading
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        char c = sc.next().charAt(0);
+        int num = sc.nextInt();
+        double d = sc.nextDouble();
+        
+        Demo demo = new Demo();
+        demo.display(c);
+        demo.display(c ,num);
+        demo.display(num, d);
+    }
+}
+----------------------------------------------------
+
+2. Multiple Inheritance
+
+import java.util.Scanner;
+
+interface Exam {
+    void percentage_cal();
+}
+
+class Student implements Exam {
+    int rollno;
+    String name;
+    int marks1, marks2;
+    double percentage;
+
+    Student(String name, int rollno, int marks1, int marks2) {
+        this.name = name;
+        this.rollno = rollno;
+        this.marks1 = marks1;
+        this.marks2 = marks2;
+    }
+
+    public void percentage_cal() {
+        percentage = ((marks1 + marks2) / 200.0) * 100;
+    }
+
+  
+    void display() {
+        System.out.println("Name of Student: " + name);
+        System.out.println("Roll No. of Student: " + rollno);
+        System.out.println("Marks of Subject 1: " + marks1);
+        System.out.println("Marks of Subject 2: " + marks2);
+        System.out.println("Percentage: " + percentage + "%");
+    }
+}
+
+public class MultipleInheritance {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        
+
+        String name = scanner.nextLine();
+        
+       
+        int rollno = scanner.nextInt();
+        
+       
+        int marks1 = scanner.nextInt();
+        
+        
+        int marks2 = scanner.nextInt();
+
+       
+        Student student = new Student(name, rollno, marks1, marks2);
+        
+        
+        student.percentage_cal();
+        
+        
+        student.display();
+        
+        scanner.close();
+    }
+}
